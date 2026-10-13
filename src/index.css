@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #000000;
+  --color-bg-subtle: #080808;
+  --color-card: #0d0d0d;
+  --color-card-hover: #141414;
+  --color-surface: #171717;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.22);
+  --color-border-strong: rgba(255, 255, 255, 0.4);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #52525b;
+  --color-accent: #ffffff;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-handwriting: 'Caveat', cursive;
+  --font-display: 'Playfair Display', serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Selection */
+::selection {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Monochrome Glass */
+.glass {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: #121212;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Watermark typography */
+.watermark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: clamp(5rem, 16vw, 15rem);
+  color: rgba(255, 255, 255, 0.02);
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  z-index: 0;
+}
+
+/* Subtle grid line background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* 3D tilt styles */
+.tilt-card-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.tilt-card-inner {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* High contrast button */
+.btn-monochrome {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-monochrome:hover {
+  background: #e4e4e7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Image filter */
+.photo-monochrome {
+  filter: grayscale(100%) contrast(1.15) brightness(0.95);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.photo-monochrome:hover {
+  filter: grayscale(80%) contrast(1.1) brightness(1.05);
+  transform: scale(1.02);
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
