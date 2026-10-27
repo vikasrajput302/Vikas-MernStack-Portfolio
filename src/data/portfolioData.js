@@ -47,17 +47,17 @@ export const PROJECTS = [
     role: 'Frontend Engineering',
   },
   {
-    id: 2,
-    title: 'Todo App',
-    subtitle: 'High-Performance Productivity Engine',
+   id: 2,
+    title: 'Allwear ',
+    subtitle: 'Allwear - Style For Every You',
     description:
-      'Distraction-free task management application featuring instant state synchronization, filtering algorithms, and persistent local storage built with React Hooks and fluid interactions.',
-    tech: ['React.js', 'React Hooks', 'JavaScript', 'CSS3', 'State Management'],
-    github: 'https://github.com/vikasrajput302/Todo-App',
-    live: 'https://todo-app-nu-self-80.vercel.app',
+      'Discover fashion for Men, Women, Kids - Everday essentails, TImeless looks, And the latest trends, all in one place. ',
+    tech: ['React.js','JavaScript', 'CSS3','TailwindCss','Express.js','MongoDB','Node.js','Cloudinary','Razorpay','Stripe','JWT' , 'Authentication','Authorization','REST API','Context API'],
+    github: 'https://github.com/vikasrajput302/AllWear-Website',
+    live: 'https://all-wear-website.vercel.app/',
     featured: true,
-    year: '2024',
-    role: 'Frontend & Architecture',
+    year: '2026',
+    role: 'Mern-Stack ',
   },
 ];
 
